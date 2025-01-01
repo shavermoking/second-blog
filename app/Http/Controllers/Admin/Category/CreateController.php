@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Category;
 
-class CreateController
+use App\Http\Controllers\Controller;
+
+class CreateController extends Controller
 {
     public function __invoke()
     {
