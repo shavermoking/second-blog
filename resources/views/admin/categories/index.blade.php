@@ -25,12 +25,38 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="col-2">
+                <div class="col-2 mb-3">
                     <a href="{{ route('admin.category.create') }}"><button type="button" class="btn btn-block btn-primary">Добавить</button></a>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Название</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($categories as $category)
+                                            <tr>
+                                                <td>{{ $category->id }}</td>
+                                                <td>{{ $category->title }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- /.content -->
 </div>
