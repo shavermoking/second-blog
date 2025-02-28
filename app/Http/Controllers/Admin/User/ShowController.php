@@ -9,6 +9,6 @@ class ShowController extends Controller
 {
     public function __invoke(User $user): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        return view('admin.users.show', compact('user'));
+        return view('admin.user.show', compact('user'));
     }
 }

@@ -11,7 +11,7 @@ class StoreRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,10 +21,26 @@ class StoreRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'title' => 'required|string'
+            'name' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Поле необходимо для заполнения',
+            'name.string' => 'Необходимо использовать строчный тип данных',
+            'email.required' => 'Поле необходимо для заполнения',
+            'email.email' => 'Неккоректный тип email',
+            'email.string' => 'Необходимо использовать строчный тип данных',
+            'email.unique' => 'Данный email уже существует',
+            'password.required' => 'Поле необходимо для заполнения',
+            'password.string' => 'Необходимо использовать строчный тип данных'
         ];
     }
 }
