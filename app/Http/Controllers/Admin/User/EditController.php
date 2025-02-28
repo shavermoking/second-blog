@@ -9,6 +9,8 @@ class EditController extends Controller
 {
     public function __invoke(User $user): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        return view('admin.user.edit', compact('user'));
+        $roles = User::getRoles();
+
+        return view('admin.user.edit', compact('user', 'roles'));
     }
 }

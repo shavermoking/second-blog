@@ -25,7 +25,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
+            'email' => 'required|string|email|unique:users,email,' . $this->user_id,
+            'user_id' => 'required|integer|exists:users,id',
+            'role' => 'required|integer'
         ];
     }
 
@@ -37,7 +39,8 @@ class UpdateRequest extends FormRequest
             'email.required' => 'Поле необходимо для заполнения',
             'email.email' => 'Неккоректный тип email',
             'email.string' => 'Необходимо использовать строчный тип данных',
-            'email.unique' => 'Данный email уже существует'
+            'email.unique' => 'Данный email уже существует',
+            'role.required' => 'Поле необходимо для заполнения'
         ];
     }
 }
